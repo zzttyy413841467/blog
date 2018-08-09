@@ -121,7 +121,7 @@ class ModelMetaclass(type):
         attrs['__update__']='update `%s` set %s where `%s`=?' % (tableName,','.join(map(lambda f:'`%s`=?' % (mappings.get(f).name or f),fields)),primaryKey)
         attrs['__delete__']='delete from `%s`where `%s`=?' % (tableName,primaryKey)
         return type.__new__(cls,name,bases,attrs)
-
+1
 
 class Model(dict,metaclass=ModelMetaclass):
     def __init__(self,**kw):
