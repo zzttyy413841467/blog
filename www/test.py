@@ -10,7 +10,7 @@ async def test(loop):
 async def find(loop):
     await orm.create_pool(user='www',password='www',db='awesome',loop=loop)
     rs = await User.findAll()
-    print('查找测试： %s' % rs)
+    print('查找测试： %s/n' % rs)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(asyncio.wait([test(loop),find(loop)]))
