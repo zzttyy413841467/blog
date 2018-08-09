@@ -4,6 +4,7 @@ create database awesome;
 
 use awesome;
 create user 'www'@'localhost' identified by 'www';
+
 alter user 'www'@'localhost' identified with mysql_native_password by 'www';
 grant select, insert, update, delete on awesome.* to 'www'@'localhost';
 
