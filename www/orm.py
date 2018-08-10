@@ -9,6 +9,7 @@ async def create_pool(loop,**kw):
     logging.info('create database connnection pool...')
     global __pool
     __pool=await aiomysql.create_pool(
+        loop=loop,
         host=kw.get('host','localhost'),
         port=kw.get('port',3306),
         user=kw['user'],
@@ -17,8 +18,7 @@ async def create_pool(loop,**kw):
         charset=kw.get('charset','utf8'),
         autocommit=kw.get('autocommit',True),
         maxsize=kw.get('maxsize',10),
-        minsize=kw.get('minsize',1),
-        loop=loop
+        minsize=kw.get('minsize',1)
     )
 
 async def select(sql,args,size=None):
