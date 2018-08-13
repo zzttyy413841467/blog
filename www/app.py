@@ -52,7 +52,7 @@ async def response_factory(app,handler):
         resp.content_type='text/plain;charset=utf-8'
         return resp
     return respones
-'''
+
 async def auth_factory(app,handler):
     async def auth(request):
         logging.info('check user: %s %s' % (request.method,request.path))
@@ -67,7 +67,7 @@ async def auth_factory(app,handler):
             return web.HTTPFound('/signin')
         return (await handler(request))
     return auth
-'''
+
 def init_jinja2(app,**kw):
     logging.info('init jinja2')
     options=dict(
