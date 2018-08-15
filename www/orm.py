@@ -173,9 +173,9 @@ class Model(dict,metaclass=ModelMetaclass):
         return [cls(**r) for r in rs]
 
     @classmethod
-    async def findNumnber(cls,selectField,where=None,args=None):
+    async def findNumber(cls,selectField,where=None,args=None):
         'find number by select and where'
-        sql=['select %s _num_ from `%s`' % (selectField,cls,__table__)]
+        sql=['select %s _num_ from `%s`' % (selectField,cls.__table__)]
         if where:
             sql.append('where')
             sql.append(where)
