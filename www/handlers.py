@@ -199,7 +199,7 @@ async def api_blogs(*,page='1'):
 @get('/api/blogs/{id}')
 async def api_get_blog(*,id):
     blog=await Blog.find(id)
-    return blog
+    return 'redirect:/manage/blogs'
 
 @get('/manage/')
 def manage():
