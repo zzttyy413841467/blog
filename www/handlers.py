@@ -247,15 +247,15 @@ async def api_create_comment(id,request, *, content):
     return comment
 
 
-@get('/manage/blogs/edit')
+@get('/manage/blogs/{id}/edit')
 def manage_edit_blog(request,*,id):
     return{
         '__template__':'manage_blog_edit.html',
         'id':id,
         'action':'/api/blogs/%s' % id,
-        'user':request.__user__
-    }
 
+    }
+ #return {'__template__':'manage_blog_edit.html','id':'','action':'/api/blogs','user': request.__user__}
 @post('/api/comments/{id}/delete')
 async def api_delete_comments(id,request):
     check_admin(request)
